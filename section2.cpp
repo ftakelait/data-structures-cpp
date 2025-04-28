@@ -10,6 +10,13 @@ struct Rectangle
 	int breadth;  // sizeof(breadth) is 4 bytes 
 };  // total size of this structure is 4*4=8 bytes (it occupies 8 bytes in memory) but not yet untill we declare it in the main() function. 
 
+int add(int a, int b)
+{
+	int c;
+	c = a + b;
+	return c;
+}
+
 int main()
 {
 	int A[5] = {4, 3, 5};
@@ -56,7 +63,11 @@ int main()
 	struct Rectangle *prtgl;
 	prtgl = (struct Rectangle *)malloc(sizeof(struct Rectangle));
 	prtgl -> length = 99;
-	cout << prtgl -> length << endl;
-
+	cout << prtgl -> length << endl << endl;
+	
+	int x, y, z;
+	x = 5; y = 5;
+	z = add(x, y);
+	cout << z << endl;
 	return 0;
 }
