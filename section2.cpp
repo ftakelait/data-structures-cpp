@@ -46,9 +46,17 @@ int main()
 
 	for (int i = 0; i < 5; i++)
 	{
-		cout << ptr1[i] << endl;	
+		cout << ptr1[i] << endl << endl;	
 	}
 	delete [] ptr1; // or free(ptr1) in C Lnaguage
+
+	struct Rectangle *prec = &r;
+	cout << prec -> length << endl << endl;
+
+	struct Rectangle *prtgl;
+	prtgl = (struct Rectangle *)malloc(sizeof(struct Rectangle));
+	prtgl -> length = 99;
+	cout << prtgl -> length << endl;
 
 	return 0;
 }
