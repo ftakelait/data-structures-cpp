@@ -63,11 +63,11 @@ int main()
 	struct Rectangle *prtgl;
 	prtgl = (struct Rectangle *)malloc(sizeof(struct Rectangle));
 	prtgl -> length = 99;
-	cout << prtgl -> length << endl << endl;
+	cout << prtgl->length << endl << endl;
 	
 	int x, y, z;
 	x = 5; y = 5;
 	z = add(x, y);
-	cout << z << endl;
+	cout << "Sum: " << z << endl;
 	return 0;
 }
