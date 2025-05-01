@@ -1,5 +1,6 @@
 #include<iostream>
 #include<stdlib.h>
+#include<stdio.h>
 
 using namespace std;
 
@@ -17,22 +18,86 @@ int add(int a, int b)
 	return c;
 }
 
+void swap(int *x, int *y)
+{
+	int temp = *x;
+	*x = *y;
+	*y = temp;
+}
+
+template<size_t N>
+void func(int (&A)[N])
+{
+  for (int x : A)
+  {
+    cout << x << endl;
+  }
+}
+
+void func1(int A[], int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+    cout << A[i] << endl;
+  }
+}
+
+int* arrayfunc(int n)
+{
+  int *p;
+  p = (int *)malloc(n*sizeof(int));
+  
+  for (int i = 0; i < n; i++)
+  {
+    p[i] = 0;
+  }
+  
+  return p;
+}
+
+void changeLength(struct Rectangle *p, int l)
+{
+  p->length = l;
+}
+
+struct test {
+  int A[5];
+  int n;
+};
+
+void myfun(struct test *ele)
+{
+  ele->A[0] = 5;
+}
+
 int main()
 {
 	int A[5] = {4, 3, 5};
-	
-	for (int x:A)
-	{
-		cout << x << endl;
-	}
-	
+	func(A);
 	cout << endl;
-			
+	func1(A, 3);
+	cout << endl;
+	// for (int x:A)
+	// {
+	//	cout << x << endl;
+	// }
+	
+	// cout << endl;
+	
+	int *B;
+	B = arrayfunc(5);
+	//B[0] = 1; B[1] = 11; B[2] = 1;
+	cout << "My function returns: " << B[0] << endl;
+	
 	// declaration of the structure and initialization
 	struct Rectangle r = {15, 2}; // now it occupies a scpace in memory
-	
+	changeLength(&r, 20);
 	// accessing a member of a structure
 	cout << "Area of a rectangle is: " << r.length * r.breadth << endl;
+	
+	struct test t = {{11, 12, 13, 14}, 4};
+	myfun(&t);
+	cout << "My test structure is: " << t.A[0] << " " << t.n << endl;
 	
 	int a = 7;
 	int *p; // pointer variable dclaration
@@ -68,6 +133,11 @@ int main()
 	int x, y, z;
 	x = 5; y = 5;
 	z = add(x, y);
-	cout << "Sum: " << z << endl;
+	cout << "Sum: " << z << endl << endl;;
+
+	int n = 5; int m = 10;  
+	swap(&n, &m);
+	printf("Swap n=5, m=10 to: n=%d, m=%d\n", n, m);
+        
 	return 0;
 }
